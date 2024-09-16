@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Ejercicio 3</title>
+</head>
+<body>
+    <div class="formulario">
+        <h1>FORMULARIO DE ALTA</h1>
+
+        <form action="Ejercicio3.html" method="get">
+            <label for="nombreApellidos">Nombre y apellidos: </label>
+            <input type="text" id="nombreApellidos" name="nombreApellidos" pattern="[a-zA-Z]{3,}" title="El campo debe contener al menos 3 letras." required>
+            
+            <br><br>
+
+            <label for="password">Contraseña de acceso: </label>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+
+            <br><br>
+
+            <span>Sexo:</span>
+
+            <input type="radio" id="hombre" name="genero" value="hombre">
+            <label for="hombre">Hombre</label>
+            <input type="radio" id="mujer" name="genero" value="mujer">
+            <label for="mujer">Mujer</label>
+
+            <br><br>
+
+            <label for="direccionPostal">Dirección Postal: </label>
+            <textarea id="direccionPostal" name="direccionPostal" cols="20" rows="6"></textarea>
+
+            <br><br>
+
+            <label for="localidad">Localidad</label>
+            <select id="localidad" name="localidad">
+                <option value="caceres">Cáceres</option>
+                <option value="badajoz">Badajoz</option>
+                <option value="merida">Mérida</option>
+            </select>
+
+            <br><br>
+
+            <div id="centrado">
+                <input type="checkbox" id="boletines" name="boletines">
+                <label for="boletines" style="font-weight: bolder;">Deseo recibir Boletines</label>
+
+                <br>
+
+                <input type="submit" value="Realizar el registro">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
