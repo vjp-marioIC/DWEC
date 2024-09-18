@@ -72,3 +72,62 @@ let funcionProcesadorPar = function (arg1, arg2, funcionProcesadora) {
 console.log("Esta vez procesamos una función (de 3 y 2): " + funcionProcesadorPar(3, 2, (n1, n2) => {return n1+ n2}));
 
 console.log("Esta vez procesamos una función (de 3 y 2): " + funcionProcesadorPar(3, 2, (n1, n2) => n1+n2));
+
+console.log("------------------------------------------------------------");
+
+//PRUEBA 6.2
+let procesaTres = function(arg1, arg2, arg3, funcionProcesadora) {
+    return funcionProcesadora(arg1, arg2, arg3);
+}
+
+//A
+let funcionSumaTres = function (arg1, arg2, arg3, funcionProcesadora) {
+    return funcionProcesadora(arg1, arg2, arg3);
+}
+
+console.log("Suma de los tres argumentos: " + funcionSumaTres(1, 1, 1, (n1, n2, n3) => {return n1+n2+n3}));
+
+//B
+let funcionRetornaMayor = function (arg1, arg2, arg3, funcionProcesadora) {
+    return funcionProcesadora(arg1, arg2, arg3);
+}
+
+console.log("Retorna el mayor los tres argumentos: " + funcionRetornaMayor(1, 4, 2, (n1, n2, n3) => {
+    if ((n1 > n2)&&(n1 > n3)) {
+        return n1;
+    } else {
+        if ((n2 > n1)&&(n2 > n3)) {
+            return n2;
+        }else {
+            if ((n3 > n1)&&(n3 > n1)) {
+                return n3;
+            }
+        }
+    }
+}));
+
+//C
+let funcionRetornaMenor = function (arg1, arg2, arg3, funcionProcesadora) {
+    return funcionProcesadora(arg1, arg2, arg3);
+}
+
+console.log("Retorna el menor de los tres argumentos: " + funcionRetornaMenor(1, 4, 2, (n1, n2, n3) => {
+    if ((n1 < n2)&&(n1 < n3)) {
+        return n1;
+    } else {
+        if ((n2 < n1)&&(n2 < n3)) {
+            return n2;
+        }else {
+            if ((n3 < n1)&&(n3 < n1)) {
+                return n3;
+            }
+        }
+    }
+}));
+
+//D
+let funcionOperacion = function (arg1, arg2, arg3, funcionProcesadora) {
+    return funcionProcesadora(arg1, arg2, arg3);
+}
+
+console.log("Operación: " + funcionOperacion(1, 1, 1, (n1, n2, n3) => {return (n1+n3)/n2}));
