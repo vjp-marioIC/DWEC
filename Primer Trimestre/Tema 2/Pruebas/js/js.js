@@ -61,6 +61,7 @@ let funcionSumarUnoMas = function(valor) {
 console.log(funcionSumarUnoMas(4));
 */
 //PRUEBA 6
+/*
 let funcionLambda = (arg1, arg2) => {return arg1 + arg2}
 
 console.log(funcionLambda(3, 2));
@@ -74,8 +75,10 @@ console.log("Esta vez procesamos una función (de 3 y 2): " + funcionProcesadorP
 console.log("Esta vez procesamos una función (de 3 y 2): " + funcionProcesadorPar(3, 2, (n1, n2) => n1+n2));
 
 console.log("------------------------------------------------------------");
+*/
 
 //PRUEBA 6.2
+/*
 let procesaTres = function(arg1, arg2, arg3, funcionProcesadora) {
     return funcionProcesadora(arg1, arg2, arg3);
 }
@@ -131,3 +134,47 @@ let funcionOperacion = function (arg1, arg2, arg3, funcionProcesadora) {
 }
 
 console.log("Operación: " + funcionOperacion(1, 1, 1, (n1, n2, n3) => {return (n1+n3)/n2}));
+*/
+
+//PRUEBA 7
+/*
+function cambiarContenido(a, b, c) {
+    a = a * 10;
+    b.item= "cambiar";
+    c = {item: "cambiar"};
+}
+
+var num = 10;
+var obj1 = {item: "inicial"};
+var obj2 = {item: "inicial"};
+
+cambiarContenido(num, obj1, obj2);
+
+console.log(num);
+console.log(obj1.item);
+console.log(obj2.item);
+*/
+
+//PRUEBA 8
+/*
+function calcularPrecioInpuesto(valor, impuesto = 10) {
+    return valor + impuesto;
+}
+
+console.log("Producto de 100€, sin entrada de impuesto: " + calcularPrecioInpuesto(100));
+console.log("Producto de 100€, con 30€ de impuesto: " + calcularPrecioInpuesto(100, 30));
+*/
+
+//PRUEBA 12
+/*
+let a = 3;
+let b = "asdf";
+let c = 3;
+let d = "12";
+
+console.log(a * b);
+
+console.log(c * d);
+console.log(c + d);
+console.log(c + +d);
+*/
