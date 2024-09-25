@@ -178,3 +178,24 @@ console.log(c * d);
 console.log(c + d);
 console.log(c + +d);
 */
+
+//PRUEBA 23
+//let arrayValores = [1, 2, 3, 4, 5];
+let arrayValores = ["t", 4, 89, "asd", true];
+
+function funcionConRest(...arrayValores) {
+    let arrayNumeros = [];
+
+    arrayValores.forEach(element => {
+        if (typeof element == "number") {
+            arrayNumeros.push(element);
+        } else {
+            return undefined;
+            //console.log(undefined) ;           
+        }
+    });
+    //console.log(Math.max(...arrayNumeros));
+    return Math.max(...arrayNumeros);
+};
+
+funcionConRest(...arrayValores);
