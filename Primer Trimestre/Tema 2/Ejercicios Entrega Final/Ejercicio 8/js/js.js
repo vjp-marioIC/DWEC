@@ -12,17 +12,17 @@ function procesarArray(arra) {
     }
 
     for (let i = 0; i < arra.length; i++) {
-        if (arra[i] % 2 === 0) {
-            alert("Éxito");
+        if (arra[i] % 2 !== 0) {
+            alert("Error");
 
             return;
         }
     }
     
-    alert("Error");
+    alert("Éxito");
 }
 
 //PRUEBA
-let arra = [2, 3, 6, 8, 10];
+let arra = [2, 4, 6, 8, 10];
 
 procesarArray(arra);
