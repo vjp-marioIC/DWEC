@@ -6,7 +6,7 @@ function longitudTotalDeArgumentos(...valores) {
         return "Error, todos los argumentos tienen que ser cadenas.";
     }
     
-    // Sumar las longitudes de las cadenas
+    // SUMO LA LONGITUD DE TODAS LAS CADENAS
     let longitudTotal = valores.reduce((total, valor) => total + valor.length, 0);
     console.log("La suma total de las longitudes de las cadenas es: " + longitudTotal);
 }
