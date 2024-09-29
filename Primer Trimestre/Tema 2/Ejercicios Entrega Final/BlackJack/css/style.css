@@ -1,0 +1,53 @@
+html {
+    height: 100%; 
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#juego {
+    width: 400px;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 15px;
+    box-shadow: 5px 15px 20px black;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0;
+}
+
+p.letrasNegrita {
+    font-weight: bold;
+}
+
+#puntosJugador {
+    font-weight: bold;
+}
+
+#puntosMaquina {
+    font-weight: bold;
+}
+
+div.botones {
+    width: max-content;
+    margin: auto;
+    padding: 5px;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#resultados {
+    text-align: center;
+    font-weight: bold;
+}

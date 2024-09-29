@@ -4,9 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Index</title>
+    <title>index</title>
 </head>
 <body>
+    <div id="juego">
+        <h1>Juego de Blackjack</h1>
+
+        <!--JUGADOR-->
+        <p class="letrasNegrita">Puntos del jugador: <span id="puntosJugador">0</span></p>
+        <p>Cartas del jugador: <span id="cartasJugador"> </span></p>
+
+        <!--MÁQUINA-->
+        <p class="letrasNegrita">Puntos de la máquina: <span id="puntosMaquina"> </span></p>
+        <p>Cartas de la máquina: <span id="cartasMaquina"> </span></p>
+
+        <div class="botones">
+            <button id="botonPedirCarta">Pedir carta</button>
+            <button id="botonPlantarse">Plantarse</button>
+        </div>
+        
+        <p id="resultados"></p>
+    </div>
+
     <script src="js/js.js"></script>
 </body>
 </html>
