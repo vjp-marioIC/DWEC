@@ -19,12 +19,12 @@ function crearBaraja() {
     return baraja;
 }
 
-// Función para calcular el valor de una mano ##################################################################
-function calcularValorMano(cartas) {
+// FUNCIÓN QUE CALCULA EL VALOR DE LAS CARTAS
+function calcularValorCartas(arrayCartas) {
     let valor = 0;
     let ases = 0;
 
-    cartas.forEach(carta => {
+    arrayCartas.forEach(carta => {
         if (carta[1] === 'Jota' || carta[1] === 'Reina' || carta[1] === 'Rey') {
             valor += 10;
         } else if (carta[1] === 'As') {
@@ -35,7 +35,6 @@ function calcularValorMano(cartas) {
         }
     });
 
-    // Ajustar el valor de los ases si se supera 21
     while (valor > 21 && ases > 0) {
         valor -= 10;
         ases -= 1;
@@ -44,12 +43,12 @@ function calcularValorMano(cartas) {
     return valor;
 }
 
-// Función para barajarCartas las cartas ##################################################################
+// FUNCIÓN PARA BARAJAR LAS CARTAS
 function barajarCartas(arrayCartas) {
-    for (let i = arrayCartas.length - 1; i > 0; i--) {
+    for (let i = arrayCartas.length - 1; i > 0; i--) { //COMIENZO DESDE LA ÚLTMIA CARTA
         let j = Math.floor(Math.random() * (i + 1));
 
-        [arrayCartas[i], arrayCartas[j]] = [arrayCartas[j], arrayCartas[i]];
+        [arrayCartas[i], arrayCartas[j]] = [arrayCartas[j], arrayCartas[i]];  // INTERCAMBIO LAS CARTAS
     }
     return arrayCartas;
 }
@@ -58,23 +57,23 @@ function barajarCartas(arrayCartas) {
 function actualizarEstadoJugador() {
     let playerCardsElement = document.getElementById('cartasJugador');
     let playerStatusElement = document.getElementById('puntosJugador');
-    let valorJugador = calcularValorMano(cartasJugador);
+    let valorJugador = calcularValorCartas(cartasJugador);
 
-    playerCardsElement.textContent = JSON.stringify(cartasJugador);
+    playerCardsElement.textContent = JSON.stringify(cartasJugador); // CONVIERTO EL ARRAY EN (STRING)
     playerStatusElement.textContent = valorJugador;
 }
 
 // FUNCIÓN PRA ACTUALIZAR LA INFORMACIÓN DE LA MÁQUINA
-function actualizarEstadoMaquina() {
+function actualizarInformacionMaquina() {
     let machineCardsElement = document.getElementById('cartasMaquina');
     let machineStatusElement = document.getElementById('puntosMaquina');
-    let valorMaquina = calcularValorMano(cartasMaquina);
+    let valorMaquina = calcularValorCartas(cartasMaquina);
 
-    machineCardsElement.textContent = JSON.stringify(cartasMaquina);
+    machineCardsElement.textContent = JSON.stringify(cartasMaquina); // CONVIERTO EL ARRAY EN (STRING)
     machineStatusElement.textContent = valorMaquina;
 }
 
-// FUNCIÓN PEDIR UNA CARTA EN EL TURNO DEL JUGADOR ############################################################################################################################
+// FUNCIÓN PEDIR UNA CARTA EN EL TURNO DEL JUGADOR
 function clickPedirCarta() {
     if (!jugando) return; // SI JUGANDO ES FALSO (SALGO)
 
@@ -83,12 +82,12 @@ function clickPedirCarta() {
         return;
     }
 
-    let carta = mazo.pop();
+    let carta = mazo.pop(); // ALMACENO LA ÚLTIMA CARTA DEL DE AL BARAJA
 
     cartasJugador.push(carta);
     actualizarEstadoJugador();
 
-    let valorJugador = calcularValorMano(cartasJugador);
+    let valorJugador = calcularValorCartas(cartasJugador);
 
     if (valorJugador > 21) {
         document.getElementById('resultados').textContent = "Te has pasado de 21. ¡La máquina ha ganado!";
@@ -98,28 +97,28 @@ function clickPedirCarta() {
     }
 }
 
-// FUNCIÓN QUE AL PLANTARSE LE TOCA A LA MAQUINA ############################################################################################################################
+// FUNCIÓN QUE AL PLANTARSE LE TOCA A LA MAQUINA
 function clickPlantarse() {
     if (!jugando) return; // SI JUGANDO ES FALSO (SALGO)
 
-    let valorJugador = calcularValorMano(cartasJugador);
+    let valorJugador = calcularValorCartas(cartasJugador);
     let valorMaquina = 0;
 
     while ((valorMaquina < valorJugador) && (valorMaquina <= 21) && (mazo.length > 0)) {
-        let carta = mazo.pop();
+        let carta = mazo.pop(); // ALMACENO LA ÚLTIMA CARTA DEL DE AL BARAJA
 
         cartasMaquina.push(carta);
-        valorMaquina = calcularValorMano(cartasMaquina);
+        valorMaquina = calcularValorCartas(cartasMaquina);
     }
 
-    actualizarEstadoMaquina();
+    actualizarInformacionMaquina();
     ganador();
 }
 
-// FUNCIÓN PARA SABER QUIEN ES EL GANADOR ############################################################################################################################
+// FUNCIÓN PARA SABER QUIEN ES EL GANADOR
 function ganador() {
-    let valorJugador = calcularValorMano(cartasJugador);
-    let valorMaquina = calcularValorMano(cartasMaquina);
+    let valorJugador = calcularValorCartas(cartasJugador);
+    let valorMaquina = calcularValorCartas(cartasMaquina);
 
     if (valorMaquina > 21) {
         document.getElementById('resultados').textContent = "La máquina ha perdido por que se ha pasado de 21. ¡Tú has ganado!";
@@ -142,7 +141,7 @@ function iniciarJuego() {
 
     document.getElementById('resultados').textContent = '';
     actualizarEstadoJugador();
-    actualizarEstadoMaquina();
+    actualizarInformacionMaquina();
 }
 
 // FUNCIÓN PARA PREGUNTAR AL JUGADOR SI QUIERE JUGAR
