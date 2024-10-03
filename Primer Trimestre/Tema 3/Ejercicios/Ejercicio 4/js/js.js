@@ -13,4 +13,4 @@ div.style.padding = "50px";
 div.style.color = "white";
 
 //5)
-div.style.badgraundColor = "red";
+div.style.backgroundColor = "red";
