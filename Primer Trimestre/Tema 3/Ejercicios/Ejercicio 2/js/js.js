@@ -1,6 +1,6 @@
 // 1
 console.log("1)");
-console.log(document.querySelector("#div1 a"));
+console.log(document.querySelector("#div1 a").title);
 console.log("#######################################)");
 
 // 2
@@ -20,11 +20,11 @@ console.log("4)");
 console.log(elementoLinkNormalSegundo.href);
 console.log("#######################################)");
 
-// 5 €€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€€
+// 5
 let elementoLinkNormalSpider = document.querySelector(".linkNormal[title^='Spider']");
 
 console.log("5)");
-console.log("Tipo de nodo: (" + elementoLinkNormalSpider.nodeName + ")");
+console.log("Tipo de nodo: (" + elementoLinkNormalSpider.nodeType + ")");
 console.log("Contenido HTML: " + elementoLinkNormalSpider.innerHTML);
 console.log("#######################################)");
 
