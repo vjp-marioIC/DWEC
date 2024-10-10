@@ -7,7 +7,6 @@ function creaCaja() {
     caja.style.width = "25px";
     caja.style.height = "25px";
     caja.style.margin = "10px";
-    caja.style.backgroundColor = "black";
 
     return caja;
 }
@@ -57,8 +56,8 @@ for (let index = 0; index < 10; index++) {
     for (let index = 0; index < 10; index++) {
         let caja = creaCaja();
 
-        caja.addEventListener("auxclick", cambiarColor);
         caja.addEventListener("click", cambiarColor);
+        caja.addEventListener("auxclick", cambiarColor);
 
         contenedorGeneral.appendChild(caja);
     }
