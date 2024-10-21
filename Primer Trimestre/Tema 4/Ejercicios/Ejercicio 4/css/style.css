@@ -1,0 +1,26 @@
+h1 {
+    text-align: center;
+}
+
+div {
+    width: max-content;
+    margin: auto;
+    margin-top: 100px;
+}
+
+div input {
+    width: 100%;
+}
+
+div table {
+    border: 1px solid black;
+}
+
+div table tr th {
+    width: 250px;
+    background-color: rgb(198, 195, 195);
+}
+
+div table tr td:first-child {
+    background-color: rgb(198, 195, 195);
+}

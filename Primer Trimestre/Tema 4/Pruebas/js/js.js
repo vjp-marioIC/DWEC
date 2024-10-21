@@ -30,7 +30,7 @@ console.log(obj2["nombre"]);
 
 var prop2 = "nombre";
 console.log(obj2[prop2]);
-*/
+
 
 // PRUEBA 2
 // CLASE (Usuario)
@@ -67,3 +67,45 @@ let admin = new Administrador("Antonio");
 
 admin.saludo();
 admin.decirTipo();
+*/
+// PRUEBA 3
+let peticionAjax = new XMLHttpRequest();
+
+peticionAjax.addEventListener("readystatechange", procesarPeticion);
+peticionAjax.open("GET", "https://raw.githubusercontent.com/fsangar/backupOpendataCCJSON/master/monumentos.json");
+peticionAjax.send();
+
+/*
+let peticionAjax2 = new XMLHttpRequest();
+let urlPeticion = "http://opendata.caceres.es/GetData/GetData";
+let urlParametros = "?dataset=om:Monumento&format=json";
+
+peticionAjax2.open("GET", urlPeticion + urlParametros);
+peticionAjax2.send();
+*/
+function procesarPeticion(evento) {
+    if (this.readyState == 4 && this.status == 200) {
+        //console.log(this.responseText);
+        let objetoResultado = JSON.parse(this.responseText);
+
+        precesarResultado(objetoResultado);
+    }
+}
+
+function pintarInfoMonumento(objetoResultado) {
+    let cadenaDevuelta = "";
+    
+    cadenaDevuelta += "Nombre " + objetoResultado.rdfs_label.value + "\n";
+    cadenaDevuelta += "Tipo monumento  " + objetoResultado.om_tipoMonumento.value + "\n";
+    cadenaDevuelta += "Latitud " + objetoResultado.geo_lat.value + "\n";
+    cadenaDevuelta += "Longitud " + objetoResultado.geo_long.value + "\n";
+    cadenaDevuelta += "Uri " + objetoResultado.uri.value + "\n";
+    
+    return cadenaDevuelta;
+}
+
+function precesarResultado(objetoResultado) {
+    for(let monumento of objetoResultado.results.bindings) {
+        console.log(pintarInfoMonumento(monumento));
+    };
+}
