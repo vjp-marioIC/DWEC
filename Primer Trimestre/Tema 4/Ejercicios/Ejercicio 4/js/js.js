@@ -4,13 +4,13 @@ let botonCargarRestaurantes = document.getElementById("botonCargarRestaurantes")
 
 // ##################################################################################################################################
 // ##################################################################################################################################
+function cargarRestaurantes() {
+    let peticionAjax = new XMLHttpRequest();
 
-let peticionAjax = new XMLHttpRequest();
-
-peticionAjax.addEventListener("readystatechange", procesarPeticion);
-peticionAjax.open("GET", "https://raw.githubusercontent.com/fredericsangar/backupOpendataCCJSON/master/restaurantes.json");
-peticionAjax.send();
-
+    peticionAjax.addEventListener("readystatechange", procesarPeticion);
+    peticionAjax.open("GET", "https://raw.githubusercontent.com/fredericsangar/backupOpendataCCJSON/master/restaurantes.json");
+    peticionAjax.send();
+}
 
 // ##################################################################################################################################
 // ##################################################################################################################################
@@ -48,3 +48,5 @@ function precesarResultado(objetoResultado) {
 function pintarConRest(restaurante, propiedad){
     return restaurante[propiedad] ? restaurante[propiedad].value : '...';
 }
+
+botonCargarRestaurantes.addEventListener("click", cargarRestaurantes);
