@@ -5,9 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let form = document.getElementById("newPlace");
 
     let nombreInput = document.getElementById("nombre");
-    let descripcionInput = document.getElementById("descripcion");
+    let descripcionTextarea = document.getElementById("descripcion");
     let cocinaInput = document.getElementById("cocina");
-    let diasCheckboxes = document.querySelectorAll('input[name="dias"]');
     let diasError = document.getElementById("diasError");
     let telefonoInput = document.getElementById("telefono");
     let fotoInput = document.getElementById("foto");
@@ -36,32 +35,40 @@ document.addEventListener("DOMContentLoaded", function () {
         // ###################################################################################
 
         //VALIDACIÓN DESCRIPCIÓN (AL MENOS UN CARÁCTER QUE NO SEA ESPACIO)
-        let descripcionValue = descripcionInput.value.trim();
+        let valorDescripcion = descripcionTextarea.value.trim();
 
-        if (descripcionValue.length === 0) {
+        if (valorDescripcion.length === 0) {
             alert("El campo descripción es obligatorio.");
             return;
+        } else {
+            descripcionTextarea.classList.remove("is-invalid");
+            descripcionTextarea.classList.add("is-valid");
         }
 
         // ###################################################################################
         // ###################################################################################
 
         //VALIDACIÓN COCINA (AL MENOS UN CARÁCTER QUE NO SEA ESPACIO)
-        let cocinaValue = cocinaInput.value.trim();
+        let valorCocina = cocinaInput.value.trim();
 
-        if (cocinaValue.length === 0) {
+        if (valorCocina.length === 0) {
             alert("El campo cocina es obligatorio.");
             return;
+        } else {
+            cocinaInput.classList.remove("is-invalid");
+            cocinaInput.classList.add("is-valid");
         }
 
         // ###################################################################################
         // ###################################################################################
 
-        //VALIDACIÓN DÍAS DE APERTURA (AL MENOS UNO DEBE ESTRA CHECKEADO).
-        let atLeastOneChecked = Array.from(diasCheckboxes).some((checkbox) => checkbox.checked);
+        // VALIDACIÓN DÍAS DE APERTURA (AL MENOS UNO DEBE ESTAR CHECKEADO)
+        let diasAperturaCheck = document.querySelector('input[name="dias"]:checked');
 
-        if (!atLeastOneChecked) {
+        if (!diasAperturaCheck) {
             diasError.classList.remove("d-none");
+
+            alert("Debe seleccionar al menos un día de apertura.");
             return;
         } else {
             diasError.classList.add("d-none");
@@ -71,32 +78,38 @@ document.addEventListener("DOMContentLoaded", function () {
         // ###################################################################################
 
         //VALIDACIÓN TELÉFONO (TIENEN QUE SER 9 NÚMEROS).
-        let telefonoValue = telefonoInput.value.trim();
+        let valorTelefono = telefonoInput.value.trim();
         let ristraTelefono = /^\d{9}$/;
 
-        if (!ristraTelefono.test(telefonoValue)) {
+        if (!ristraTelefono.test(valorTelefono)) {
             alert("Tienes que insertar un teléfono válido de 9 números.");
             return;
+        } else {
+            telefonoInput.classList.remove("is-invalid");
+            telefonoInput.classList.add("is-valid");
         }
 
         // ###################################################################################
         // ###################################################################################
 
         // VALIDACIÓN DE IMAGEN
+        // COMPRUEBO SI SE HA SELECCIOANDO ALGÚN ARCHIVO
         if (fotoInput.files.length === 0) {
             alert("El campo imagen es obligatorio.");
             return;
         }
 
-        fotoInput.addEventListener('change', event => {
-            let file = event.target.files[0];
+        fotoInput.addEventListener('change', evento => {
+            // SELECCIONO EL PRIMER ELEMENTO DE LA LISTA Y CREO UN OBJETO PARA LEER EL CONTENIDO DE LOS ARCHIVOS
+            let file = evento.target.files[0];
             let reader = new FileReader();
 
+            // SI EXISTE LO LEO
             if (file) {
                 reader.readAsDataURL(file);
             }
 
-            reader.addEventListener('load', e => {
+            reader.addEventListener('load', evento => {
                 imgPreview.src = reader.result;
             });
         });
