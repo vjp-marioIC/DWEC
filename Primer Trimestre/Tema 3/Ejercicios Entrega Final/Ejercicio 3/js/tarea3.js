@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //FORMULARIO
     form.addEventListener("submit", function (event) {
+        // EVITO QUE LA PÁGINA SE RECARGUE
         event.preventDefault();
 
         //VALIDACIÓN NOMBRE

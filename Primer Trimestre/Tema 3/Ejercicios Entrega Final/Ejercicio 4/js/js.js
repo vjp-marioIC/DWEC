@@ -3,13 +3,28 @@ document.addEventListener("DOMContentLoaded", function () {
     // VARIABLES
     let form = document.getElementById("formulario");
 
+    let divPadre = document.getElementById("divPadre");
     let nombreInput = document.getElementById("nombre");
     let diaInput = document.getElementById("dia");
     let mesInput = document.getElementById("mes");
     let añoInput = document.getElementById("año");
 
+    // FUNCION PARA GENERAR UNA IMAGEN ALEATORIA
+    function crearImgAleatoria() {
+        let img = document.createElement("img");
+        let numImagen = Math.floor(Math.random() * 10) + 1;
+
+        img.src = "../img/avatar" + numImagen + ".png";
+        img.alt = "Imagen aleatoria";
+        img.width = 200;
+        img.height = 200;
+
+        return img;
+    }
+
     // FORMULARIO
     form.addEventListener("submit", function (event) {
+        // EVITO QUE LA PÁGINA SE RECARGUE
         event.preventDefault();
 
         // VALIDACIÓN DEL NOMBRE
@@ -53,5 +68,23 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("El campo año es obligatorio y su valor mínimo es 1.");
             return;
         }
+
+        // ###################################################################################
+        // ###################################################################################
+
+        // CREO EL DIV Y EL H1
+        let divFechas = document.createElement("div");
+        let tituloFechas = document.createElement("h1");
+
+        tituloFechas.textContent = "Contenedor de fechas de cumpleaños";
+
+        divFechas.appendChild(tituloFechas);
+
+        // CREO LA IMG ALEATORIA Y LA INSERTO EN EL DIV
+        let imgAleatoria = crearImgAleatoria();
+        divFechas.appendChild(imgAleatoria);
+
+        // INSERTO TODO EN EL (divPadre)
+        divPadre.appendChild(divFechas);
     });
 });

@@ -29,3 +29,15 @@ div input {
 #año {
     margin-left: 29px;
 }
+
+#divPadre > div {
+    width: 90%;
+    padding: 30px;
+    text-align: center;
+    border: 2px solid black;
+    margin-bottom: 20px;
+}
+
+#divPadre > div img {
+    border-radius: 15px;
+}
