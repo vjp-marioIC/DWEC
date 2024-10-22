@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let img = document.createElement("img");
         let numImagen = Math.floor(Math.random() * 10) + 1;
 
-        img.src = "../img/avatar" + numImagen + ".png";
+        img.src = "img/avatar" + numImagen + ".png";
         img.alt = "Imagen aleatoria";
         img.width = 200;
         img.height = 200;
