@@ -69,13 +69,14 @@ admin.saludo();
 admin.decirTipo();
 */
 // PRUEBA 3
+/*
 let peticionAjax = new XMLHttpRequest();
 
 peticionAjax.addEventListener("readystatechange", procesarPeticion);
 peticionAjax.open("GET", "https://raw.githubusercontent.com/fsangar/backupOpendataCCJSON/master/monumentos.json");
 peticionAjax.send();
 
-/*
+
 let peticionAjax2 = new XMLHttpRequest();
 let urlPeticion = "http://opendata.caceres.es/GetData/GetData";
 let urlParametros = "?dataset=om:Monumento&format=json";
@@ -83,6 +84,7 @@ let urlParametros = "?dataset=om:Monumento&format=json";
 peticionAjax2.open("GET", urlPeticion + urlParametros);
 peticionAjax2.send();
 */
+/*
 function procesarPeticion(evento) {
     if (this.readyState == 4 && this.status == 200) {
         //console.log(this.responseText);
@@ -108,4 +110,18 @@ function precesarResultado(objetoResultado) {
     for(let monumento of objetoResultado.results.bindings) {
         console.log(pintarInfoMonumento(monumento));
     };
-}
+}*/
+
+// PRUEBA 4
+/*
+let peticionAjax = new XMLHttpRequest();
+
+peticionAjax.addEventListener("readystatechange", procesarPeticion);
+peticionAjax.open("GET", "http://www.google.es");
+peticionAjax.send();
+
+function procesarPeticion(evento) {
+    if (this.readyState == 4 && this.status == 200) {
+        console.log(this.responseText);
+    }
+}*/
